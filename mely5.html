@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corazón Morado</title>
+    <style>
+        /* Estilo global */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f2f2f2;
+            background-image: url('https://www.transparenttextures.com/patterns/sky-1.png');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        /* Corazón morado palpitante */
+        .heart {
+            width: 150px;
+            height: 150px;
+            background-color: #800080;
+            position: relative;
+            margin-bottom: 20px;
+            cursor: pointer;
+            animation: heartbeat 1s infinite alternate;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transform: rotate(45deg);
+            margin: 0 auto;
+        }
+
+        .heart:before, .heart:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #800080;
+            border-radius: 50%;
+            top: 0;
+        }
+
+        .heart:before {
+            left: 50px;
+        }
+
+        .heart:after {
+            top: -50px;
+            left: 0;
+        }
+
+        /* Animación de latido */
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Corazones pequeños alrededor */
+        .small-heart {
+            width: 30px;
+            height: 30px;
+            background-color: #800080;
+            position: absolute;
+            border-radius: 50%;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        .small-heart:nth-child(1) {
+            top: 30px;
+            left: 40px;
+            animation-delay: 0s;
+        }
+
+        .small-heart:nth-child(2) {
+            top: 60px;
+            left: 80px;
+            animation-delay: 1s;
+        }
+
+        .small-heart:nth-child(3) {
+            top: 90px;
+            left: 20px;
+            animation-delay: 2s;
+        }
+
+        .small-heart:nth-child(4) {
+            top: 120px;
+            left: 100px;
+            animation-delay: 3s;
+        }
+
+        /* Animación de flotación de los corazones pequeños */
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Estilo del mensaje */
+        .message {
+            font-size: 18px;
+            color: #333;
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 2px solid #800080;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            margin: 20px auto;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+
+        .message p {
+            margin: 10px 0;
+        }
+
+        .message .date {
+            font-size: 14px;
+            color: #800080;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Corazón morado palpitante -->
+        <div class="heart" onclick="showMessage()"></div>
+
+        <!-- Corazones pequeños alrededor -->
+        <div class="small-heart"></div>
+        <div class="small-heart"></div>
+        <div class="small-heart"></div>
+        <div class="small-heart"></div>
+
+        <!-- Mensaje de amor -->
+        <div class="message" id="message">
+            <p>Melany,</p>
+            <p>En cada rincon de mi corazon se guarda un suspiro por ti. Eres la razon de mi alegria, y cada pensamiento sobre ti ilumina mis dias como el sol ilumina la manana.</p>
+            <p>Mi amor por ti crece mas con cada instante. No importa la distancia, siempre estare pensando en ti, y te llevare en mi alma.</p>
+            <p>Te amo con todo mi ser, Leonel.</p>
+            <div class="date">Nos veremos pronto en Guatemala, mein Liebes. <br> 10/9/2025</div>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            const message = document.getElementById('message');
+            message.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
